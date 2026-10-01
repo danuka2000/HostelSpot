@@ -34,6 +34,11 @@
           "photosPermission": "HostelSpot needs access to your photos to upload room photos."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "c00fe84a-c64b-4808-a519-717bc3f0900a"
+      }
+    }
   }
 }
