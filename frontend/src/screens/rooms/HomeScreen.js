@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, ScrollView, RefreshControl, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, ScrollView, RefreshControl, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
-import { Search, Compass, Shield, Sparkles, ChevronRight, CalendarCheck } from 'lucide-react-native';
+import { Compass, Shield, Sparkles, CalendarCheck } from 'lucide-react-native';
 import { AuthContext } from '../../context/AuthContext';
 import { roomService } from '../../services/roomService';
 import { bookingService } from '../../services/bookingService';
@@ -17,7 +17,6 @@ export const HomeScreen = ({ navigation }) => {
   const [activeBooking, setActiveBooking] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
   const fetchDashboardData = async () => {
     try {
@@ -89,24 +88,9 @@ export const HomeScreen = ({ navigation }) => {
             </View>
           </View>
 
-          <Text className="text-xs text-sage-100 font-medium mb-4">
+          <Text className="text-xs text-sage-100 font-medium">
             Find a boutique accommodation that feels like home.
           </Text>
-
-          {/* Quick Search Module */}
-          <TouchableOpacity
-            activeOpacity={0.9}
-            onPress={() => navigation.navigate('RoomsTab')}
-            className="flex-row items-center bg-cream-50 rounded-2xl px-4 py-3 border border-cream-200 shadow-sm"
-          >
-            <Search color="#122C23" size={18} className="mr-3" />
-            <Text className="text-xs text-charcoal-500 font-medium flex-1 ml-2">
-              Search by room number, single/double type...
-            </Text>
-            <View className="bg-clay-500 p-1.5 rounded-xl">
-              <ChevronRight color="#FAF8F5" size={16} />
-            </View>
-          </TouchableOpacity>
         </View>
 
         {/* Content Section */}
